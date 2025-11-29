@@ -1,0 +1,375 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PREMIUM MINIMAL DESIGN SYSTEM - Linear/Notion/Arc Level Craftsmanship */
+
+/* Refined Color System with Better Neutrals */
+:root {
+  --button-outline: rgba(0,0,0, .08);
+  --badge-outline: rgba(0,0,0, .04);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(0,0,0, .02);
+  --elevate-2: rgba(0,0,0, .06);
+  --background: 0 0% 100%;
+  --foreground: 0 0% 13%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 13%;
+  --card-border: 143 72% 29%;
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 0 0% 13%;
+  --sidebar-border: 0 0% 91%;
+  --sidebar-primary: 143 60% 24%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 94%;
+  --sidebar-accent-foreground: 0 0% 13%;
+  --sidebar-ring: 143 60% 24%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 13%;
+  --popover-border: 0 0% 91%;
+  --primary: 143 60% 24%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 94%;
+  --secondary-foreground: 0 0% 13%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 40%;
+  --accent: 0 0% 94%;
+  --accent-foreground: 0 0% 13%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 0 0% 91%;
+  --border: 0 0% 91%;
+  --ring: 143 60% 24%;
+  --hover: 24.6 95% 53.1%;
+  --hover-foreground: 0 0% 100%;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --success: 143 60% 24%;
+  --success-foreground: 0 0% 100%;
+  --color-professor: hsl(var(--chart-1));
+  --color-room: hsl(var(--chart-2));
+  --color-face-to-face: hsl(var(--chart-3));
+  --color-online: hsl(var(--chart-4));
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  --radius: 0.5rem;
+  --spacing: 0.25rem;
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .08);
+  --badge-outline: rgba(255,255,255, .04);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255,255,255, .03);
+  --elevate-2: rgba(255,255,255, .07);
+  --background: 0 0% 8%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 11%;
+  --card-foreground: 0 0% 95%;
+  --card-border: 143 72% 35%;
+  --sidebar: 0 0% 8%;
+  --sidebar-foreground: 0 0% 95%;
+  --sidebar-border: 0 0% 18%;
+  --sidebar-primary: 143 60% 28%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 18%;
+  --sidebar-accent-foreground: 0 0% 95%;
+  --sidebar-ring: 143 60% 28%;
+  --popover: 0 0% 11%;
+  --popover-foreground: 0 0% 95%;
+  --popover-border: 0 0% 18%;
+  --primary: 143 60% 28%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 18%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 18%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 18%;
+  --accent-foreground: 0 0% 95%;
+  --destructive: 0 72.2% 50.6%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 143 60% 28%;
+  --success-foreground: 0 0% 100%;
+  --input: 0 0% 18%;
+  --border: 0 0% 18%;
+  --ring: 143 60% 28%;
+  --hover: 24.6 95% 53.1%;
+  --hover-foreground: 0 0% 100%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --color-professor: hsl(var(--chart-1));
+  --color-room: hsl(var(--chart-2));
+  --color-face-to-face: hsl(var(--chart-3));
+  --color-online: hsl(var(--chart-4));
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* REFINED, MINIMAL ANIMATIONS */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Apply animations */
+@layer components {
+  .animate-fade-in-up {
+    animation: fade-in-up 0.4s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+}
+
+/* Premium Typography System - Refined Scale */
+@layer base {
+  html {
+    @apply scroll-smooth;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(var(--background));
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  html.dark {
+    background-image: none !important;
+    background-color: hsl(var(--background)) !important;
+  }
+
+  body {
+    @apply text-foreground font-sans antialiased;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    background-color: transparent;
+    background-image: none;
+  }
+
+  #root {
+    background-color: transparent;
+    background-image: none;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  h1 {
+    @apply font-semibold tracking-tight;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply font-semibold tracking-tight;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    @apply font-semibold;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h4, h5, h6 {
+    @apply font-medium;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  a {
+    @apply transition-colors duration-150;
+  }
+
+  label {
+    @apply text-sm font-medium leading-none;
+  }
+}
+
+/* Refined Input Styles with Subtle Depth */
+@layer components {
+  .input-premium {
+    @apply px-4 py-2.5 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 focus:ring-1 focus:ring-green-500 focus:border-green-500 transition-all duration-150 shadow;
+  }
+
+  .input-premium::placeholder {
+    @apply text-gray-500 dark:text-gray-500;
+  }
+}
+
+/* Smooth Transitions */
+* {
+  @apply transition-colors duration-150;
+}
+
+button, a {
+  @apply transition-all duration-200;
+}
+
+/* Refined Card Styles with Subtle Layering */
+@layer components {
+  .card-minimal {
+    @apply rounded-lg border border-[#165c34] dark:border-[#1a8e3d] bg-white dark:bg-gray-950 shadow transition-all duration-200;
+  }
+
+  .card-minimal:hover {
+    @apply shadow-md border-[#1a8e3d] dark:border-[#22b863];
+  }
+}
+
+/* Hide scrollbar while keeping scroll functionality */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* React Big Calendar Styling */
+.rbc-calendar-wrapper {
+  @apply rounded-lg overflow-hidden shadow;
+}
+
+.rbc-header {
+  @apply font-medium text-sm bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 py-3;
+}
+
+.rbc-today {
+  @apply bg-green-50 dark:bg-green-950/30;
+}
+
+.rbc-event {
+  @apply rounded px-2 py-1 text-xs font-medium;
+  background: linear-gradient(135deg, #16652c 0%, #1f8c3d 100%);
+}
+
+/* Dark mode specific */
+.dark {
+  .rbc-toolbar button {
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+    background-color: hsl(var(--card));
+  }
+
+  .rbc-toolbar button:hover {
+    background-color: hsl(var(--muted));
+  }
+
+  .rbc-today {
+    background-color: hsl(var(--accent) / 0.3);
+  }
+
+  .rbc-off-range-bg {
+    background-color: hsl(var(--muted) / 0.3);
+  }
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar on mobile devices while allowing scroll */
+@media (max-width: 768px) {
+  html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Moving Gradient Animation */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Premium Topbar Gradient - Moving */
+@layer components {
+  .topbar-gradient {
+    background: linear-gradient(-45deg, #15803d, #1b8e3d, #166534, #1b8e3d, #15803d);
+    background-size: 300% 300%;
+    animation: moveGradient 20s ease infinite;
+  }
+  
+  .focus-ring {
+    @apply focus:outline-none focus:ring-1 focus:ring-green-500;
+  }
+}
