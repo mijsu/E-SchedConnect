@@ -1,0 +1,75 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    function isProfessor() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'professor';
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Users collection - users can read their own profile, admins can read all
+    match /users/{userId} {
+      allow read: if isSignedIn() && (isOwner(userId) || isAdmin());
+      allow create: if isSignedIn() && isOwner(userId);
+      allow update: if isSignedIn() && isOwner(userId);
+      allow delete: if isAdmin();
+    }
+
+    // Professors - admins can manage, professors can read
+    match /professors/{professorId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Subjects - admins can manage, everyone can read
+    match /subjects/{subjectId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Rooms - admins can manage, everyone can read
+    match /rooms/{roomId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Schedules - admins can manage, everyone can read
+    match /schedules/{scheduleId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Adjustment Requests - professors can create their own, admins can manage all
+    match /adjustmentRequests/{requestId} {
+      allow read: if isSignedIn();
+      allow create: if isProfessor() && request.resource.data.professorId in get(/databases/$(database)/documents/professors/$(request.resource.data.professorId)).data.userId;
+      allow update, delete: if isAdmin();
+    }
+
+    // Audit Logs - admins can read, system can create
+    match /auditLogs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isSignedIn();
+      allow update, delete: if false; // Audit logs are immutable
+    }
+
+    // Notifications - users can read their own
+    match /notifications/{notificationId} {
+      allow read: if isSignedIn() && isOwner(resource.data.userId);
+      allow create: if isAdmin();
+      allow update: if isSignedIn() && isOwner(resource.data.userId);
+      allow delete: if isSignedIn() && isOwner(resource.data.userId);
+    }
+  }
+}
